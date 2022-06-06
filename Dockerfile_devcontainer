@@ -1,0 +1,44 @@
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
+
+
+
+RUN apt-key del 7fa2af80
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/7fa2af80.pub
+RUN apt-get -y update
+RUN apt-get -y install git
+RUN git config --global --add safe.directory /workspaces/BAIT
+
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
+# conda install ipykernel --update-deps --force-reinstall
+# conda install scikit-learn --update-deps --force-reinstall
+run conda install networkx
+WORKDIR /app
+COPY . /app
+# RUN apt-get -y install ntp
+
+RUN apt-get install git-lfs
+RUN git lfs install
+
+
+RUN git config --global user.email "lutzurb1@students.zhaw.ch"
+RUN git config --global user.name "Urban Lutz"
+RUN git config --global http.sslVerify false
+
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+# RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+# USER appuser
+
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+# CMD ["python", "original_code/Synaptic-Flow/main.py"]
+

@@ -1,0 +1,56 @@
+version: "3.9"
+services:
+  experiment0:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    image: lutzurb1/bait:latest
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    environment:
+      - INSTANCE_ID=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  experiment1:
+    depends_on:
+      - experiment0
+    image: lutzurb1/bait:latest
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    environment:
+      - EXPERIMENTS_FILE=./experiments/experiments-part1.json
+      - INSTANCE_ID=1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  experiment2:
+    depends_on:
+      - experiment0
+    image: lutzurb1/bait:latest
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    environment:
+      - EXPERIMENTS_FILE=./experiments/experiments-part2.json
+      - INSTANCE_ID=2
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

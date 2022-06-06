@@ -1,0 +1,7 @@
+Data/*
+cuda-keyring_1.0-1_all.deb
+artefacts/*
+metapruner/*
+**/__pycache__/*
+saves/*
+runs/*

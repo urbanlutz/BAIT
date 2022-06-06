@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Main",
+            "type": "python",
+            "request": "launch",
+            "program": "./main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Convert results to csv",
+            "type": "python",
+            "request": "launch",
+            "program": "./convert_states_to_results.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Profile Main",
+            "type": "python",
+            "request": "launch",
+            "module": "cProfile",
+            "args": [
+                "-o", "/tmp/tmp.prof", "./main.py"
+            ]
+        },
+        {
+            "name": "Docker: Python - General",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "code": "${file}",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "general"
+            }
+        }
+    ]
+}
