@@ -6982,3 +6982,155 @@ Traceback (most recent call last):
   File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 260, in __exit__
     self.file_like.write_end_of_file()
 RuntimeError: [enforce fail at inline_container.cc:300] . unexpected pos 64 vs 0
+ERROR:root:experiment standard_o10_SynFlowMagStacked _0.01 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'SynFlowMagStacked '
+ERROR:root:experiment standard_o10_MagSynFlowStacked _0.01 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'MagSynFlowStacked '
+ERROR:root:experiment standard_o10_SynFlowMagStacked _0.015 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'SynFlowMagStacked '
+ERROR:root:experiment standard_o10_MagSynFlowStacked _0.015 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'MagSynFlowStacked '
+ERROR:root:experiment standard_o10_SynFlowMagStacked _0.2 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'SynFlowMagStacked '
+ERROR:root:experiment standard_o10_MagSynFlowStacked _0.2 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'MagSynFlowStacked '
+ERROR:root:experiment standard_o10_SynFlowMagStacked _0.5 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'SynFlowMagStacked '
+ERROR:root:experiment standard_o10_MagSynFlowStacked _0.5 failed!
+Traceback (most recent call last):
+  File "/app/src/experiment.py", line 139, in run_experiments
+    completed_experiment = run(experiment, init_id, repeat)
+  File "/app/src/experiment.py", line 153, in run
+    run_phases(expr)
+  File "/app/src/experiment.py", line 236, in run_phases
+    run_phase(expr.state, pruning_phase)
+  File "/app/src/phase_actions.py", line 21, in run_phase
+    return mapping[type(phase_params)](state, phase_params)
+  File "/app/src/phase_actions.py", line 33, in one_shot_pruning
+    state.set_pruner(prune_params)
+  File "/app/utils/state.py", line 63, in set_pruner
+    prepare_pruner(self, prune_params)
+  File "/app/utils/state.py", line 174, in prepare_pruner
+    state.pruner = load.pruner(prune_params.strategy)(generator.masked_parameters(state.model, prune_params.prune_bias, prune_params.prune_batchnorm, prune_params.prune_residual))
+  File "/app/original_code/synflow/Utils/load.py", line 197, in pruner
+    return prune_methods[method]
+KeyError: 'MagSynFlowStacked '

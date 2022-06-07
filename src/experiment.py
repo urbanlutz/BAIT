@@ -42,13 +42,14 @@ ensembles_plus = [f"{e}Plus" for e in ensembles]
 stacked_basis = ["SynFlow", "SNIP", "GraSP", "Mag", "Rand"]
 stackeds = [f"{a}{b}Stacked" for a, b in product(stacked_basis, stacked_basis)]
 
-ALGOS = ensembles
+ALGOS = stackeds
 
 
 # SPARSITIES = [0.004, 0.005, 0.007, 0.01, 0.015, 0.2, 0.5]
-SPARSITIES = [0.004, 0.005, 0.007, 0.01, 0.015, 0.2, 0.5]
+SPARSITIES = [0.1]
+
 # PRUNE_EPOCHS = [1, 10]
-PRUNE_EPOCHS = [1, 10]
+PRUNE_EPOCHS = [10]
 PRUNING_STRATEGIES = ["o"] #, "i"] #["o", "i", "c"] -> c = 90/10 combination of oneshot & iterative
 
 MODEL = "lenet_300_100"
@@ -117,7 +118,7 @@ def get_init(experiment: Experiment, repeat):
 
     except Exception as e:
         print(f"no suitable init found! {e}")
-        traceback.print_exc()
+        # traceback.print_exc()
         return create_base_model(experiment.model_params, experiment.data_params)
 
 def run_experiments(states = None):
