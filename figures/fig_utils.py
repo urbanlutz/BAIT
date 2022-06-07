@@ -4,10 +4,10 @@ def savefig(ax, name):
         fig = ax.get_figure()
     except:
         fig = ax.fig
-    size = fig.get_size_inches()*fig.dpi
-    size = [f"{s:.0f}".replace(".", "") for s in size]
+    # size = fig.get_size_inches()*fig.dpi
+    # size = [f"{s:.0f}".replace(".", "") for s in size]
     # fig.savefig(f"{FIG_PATH}/6_{size[0]}x{size[1]}_{name}")
-    fig.savefig(f"{FIG_PATH}/{name}", dpi=200)
+    fig.savefig(f"{FIG_PATH}/{name}", dpi=200, transparent=True, bbox_inches='tight')
 
 
 pretty_names = {
